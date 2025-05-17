@@ -25,6 +25,8 @@
   });
 })();*/
 
+document.getElementById("loginButton").addEventListener("click", doLogin);
+
 function doLogin() {
   const username = document.getElementById('inputUsername').value;
   const password = document.getElementById('inputPassword').value;
@@ -36,7 +38,7 @@ function doLogin() {
       alert("ko request dc");
       return;
     }
-  }
-}
+  };
 
-document.getElementById("loginButton").addEventListener("click", doLogin);
+  return;
+}
