@@ -1,295 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MaetsVn - Shop Page</title>
 
-  <head>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <title>Lugx Gaming - Shop Page</title>
+  <!-- Font Awesome (để có icon mũi tên phân trang) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/MaestVN.css" />
+  <style>
+    /* Card bo tròn và đổ bóng nhẹ */
+    .card {
+      border-radius: 1rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
 
+    /* Nút Buy Now bo tròn */
+    .btn-primary.rounded-pill {
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: 50rem !important;
+    }
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/MaestVN.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-  </head>
-
+    /* Phân trang tròn */
+    .pagination .page-link {
+      border-radius: 50% !important;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      padding: 6px 0;
+      margin: 0 4px;
+    }
+    .pagination .page-item.active .page-link {
+      background-color: #007bff;
+      color: white;
+      border: none;
+    }
+    .pagination .page-item.disabled .page-link {
+      color: #ccc;
+      background-color: #f8f9fa;
+    }
+    .pagination .page-item {
+  margin: 0 4px; /* điều chỉnh khoảng cách ngang giữa các số */
+}
+  </style>
+</head>
 <body>
-
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
-
-  <!-- ***** Header Area Start ***** -->
+    <!-- ***** Preloader End ***** -->
+  <!-- Header -->
   <header class="header-area header-sticky">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/logo.png" alt="" style="width: 158px;">
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="shop.html" class="active">Our Shop</a></li>
-                      <li><a href="product-details.html">Product Details</a></li>
-                      <li><a href="contact.html">Contact Us</a></li>
-                      <li><a href="#">Sign In</a></li>
-                  </ul>   
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <a href="index.html" class="logo">
+              <img src="assets/images/logo.png" alt="Logo" style="width: 158px" />
+            </a>
+            <ul class="nav align-items-center">
+                  <li><a href="index.html" class="active">Home</a></li>
+                  <li><a href="shop.html">Our Shop</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+                  <li><a href="login.html">Sign In</a></li>
+                <li class="nav-item position-relative" style="width: 70px; height: 40px;">
+                <a href="#" id="cart-icon" class="nav-link d-flex align-items-center justify-content-center p-0 w-100 h-100 position-relative">
+                  <i class="fa fa-shopping-cart fa-lg"></i>
+                  <span id="cart-count"
+                        class="badge bg-danger rounded-circle position-absolute"
+                        style="top: 2px; right: 2px; font-size: 10px; min-width: 16px; height: 16px; line-height: 16px; text-align: center;">
+                    0
+                  </span>
+                </a>
+              </li>
+                </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
         </div>
+      </div>
     </div>
   </header>
-  <!-- ***** Header Area End ***** -->
 
+  <!-- Page Heading -->
   <div class="page-heading header-text">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <h3>Our Shop</h3>
-          <span class="breadcrumb"><a href="#">Home</a> > Our Shop</span>
+          <span class="breadcrumb"><a href="index.html">Home</a> &gt; Our Shop</span>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="section trending">
-    <div class="container">
-      <ul class="trending-filter">
-        <li>
-          <a class="is_active" href="#!" data-filter="*">Show All</a>
-        </li>
-        <li>
-          <a href="#!" data-filter=".adv">Phiêu Lưu</a>
-        </li>
-        <li>
-          <a href="#!" data-filter=".adv">Hành Động</a>
-        </li>
-         <li>
-          <a href="#!" data-filter=".rpg">RPG</a>
-        </li>
-         <li>
-          <a href="#!" data-filter=".ft">Xu Hướng</a>
-        </li>
-        <li>
-          <a href="#!" data-filter=".str">Chiến Thuật</a>
-        </li>
-        <li>
-          <a href="#!" data-filter=".rac">Thể Thao</a>
-        </li>
-      </ul>
-      <div class="row trending-box">
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-01.jpg" alt=""></a>
-              <span class="price"><em>$36</em>$24</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
+  <!-- Filter & Search -->
+  <div class="container" style="padding-top: 30px;">
+    <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap">
+      <div class="d-flex gap-3">
+        <!-- Filter by Category -->
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown">
+            Filter by Category
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+            <li><a class="dropdown-item filter-btn" href="#" data-filter="all">All</a></li>
+            <li><a class="dropdown-item filter-btn" href="#" data-filter="adv">Adventure</a></li>
+            <li><a class="dropdown-item filter-btn" href="#" data-filter="str">Strategy</a></li>
+            <li><a class="dropdown-item filter-btn" href="#" data-filter="nd">NguyenDong</a></li>
+          </ul>
         </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-02.jpg" alt=""></a>
-              <span class="price"><em>$32</em>$22</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv rac rpg">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-03.jpg" alt=""></a>
-              <span class="price"><em>$45</em>$30</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-04.jpg" alt=""></a>
-              <span class="price"><em>$32</em>$22</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rac str">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-03.jpg" alt=""></a>
-              <span class="price"><em>$38</em>$26</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rac adv">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-01.jpg" alt=""></a>
-              <span class="price"><em>$30</em>$20</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rac str">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-04.jpg" alt=""></a>
-              <span class="price"><em>$32</em>$22</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 rac adv">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-02.jpg" alt=""></a>
-              <span class="price"><em>$32</em>$22</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv rac">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-03.jpg" alt=""></a>
-              <span class="price"><em>$28</em>$20</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-04.jpg" alt=""></a>
-              <span class="price"><em>$26</em>$18</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-01.jpg" alt=""></a>
-              <span class="price"><em>$32</em>$24</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 str">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/trending-02.jpg" alt=""></a>
-              <span class="price"><em>$45</em>$30</span>
-            </div>
-            <div class="down-content">
-              <span class="category">Action</span>
-              <h4>Assasin Creed</h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <ul class="pagination">
-          <li><a href="#"> &lt; </a></li>
-            <li><a href="#">1</a></li>
-            <li><a class="is_active" href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#"> &gt; </a></li>
+
+        <!-- Filter by Price -->
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="priceFilterDropdown" data-bs-toggle="dropdown">
+            Filter by Price
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="priceFilterDropdown" id="price-filter-menu">
+            <li><a class="dropdown-item price-filter-btn active" href="#" data-price="all">All Prices</a></li>
+            <li><a class="dropdown-item price-filter-btn" href="#" data-price="free">Free</a></li>
+            <li><a class="dropdown-item price-filter-btn" href="#" data-price="20">&lt; $20</a></li>
+            <li><a class="dropdown-item price-filter-btn" href="#" data-price="50">&lt; $50</a></li>
+            <li><a class="dropdown-item price-filter-btn" href="#" data-price="100">&lt; $100</a></li>
+            <li><a class="dropdown-item price-filter-btn" href="#" data-price="200">&lt; $200</a></li>
+            <li><a class="dropdown-item price-filter-btn" href="#" data-price="more">&gt; $200</a></li>
           </ul>
         </div>
       </div>
+
+      <!-- Search Box -->
+      <div style="width: 100%; max-width: 500px;">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search games by name..." />
+      </div>
     </div>
+
+    <!-- Game List -->
+    <div class="row fade" id="game-list" style="margin-top: 0;">
+      <!-- JS will populate this -->
+    </div>
+
+    <!-- Pagination -->
+    <nav>
+      <ul class="pagination justify-content-center mt-4" id="pagination">
+        <!-- JS will generate pages -->
+      </ul>
+    </nav>
   </div>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="col-lg-12">
-        <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" href="https://templatemo.com" target="_blank">Design: TemplateMo</a></p>
+        <div class="footer-selection">
+          <a href="https://www.facebook.com/maetvngames?locale=vi_VN" target="_blank"><img
+              src="././assets/images/facebook-icon.png" alt="Facebook"></a>
+          <a href="https://www.instagram.com/maetsvngames/?fbclid=IwY2xjawKOUMhleHRuA2FlbQIxMABicmlkETFtMzczZ0ZQazZtZ1E1RmNaAR7pi_HYbNtTuZ-wf9ZGjnZkXgLPFu3TIkaKyU3SFYhTCnlmiZ-zdnMU2SqULQ_aem_yPWWGt2sQI2IMx8C_ZlFBQ#"
+            target="_blank"><img src="././assets/images/Instagram_icon.png" alt="Instagram"></a>
+          <a href="https://x.com/maetsvngames?fbclid=IwY2xjawKOUrdleHRuA2FlbQIxMABicmlkETFtMzczZ0ZQazZtZ1E1RmNaAR7pi_HYbNtTuZ-wf9ZGjnZkXgLPFu3TIkaKyU3SFYhTCnlmiZ-zdnMU2SqULQ_aem_yPWWGt2sQI2IMx8C_ZlFBQ"
+            target="_blank"><img src="././assets/images/X-icon.png" alt="X"></a>
+          <a href="https://g.co/kgs/Bg7F1dk" target="_blank"><img src="././assets/images/GoogleIcon.png"
+              alt="GoogleIcon"></a>
+        </div>
+      </div>
+      <div class="col-lg-12">
+          <li><span>Địa chỉ: </span>Đường Bùi Hữu Nghĩa, Bửu Hòa, thành phố Biên Hòa, Đồng Nai</li>
+          <li><span>SĐT: </span> +123 456 7890</li>
+          <li><span>Email: </span> maetsvn@contact.com</li>
+      </div>
+      <div class="col-lg-12">
+        <p><a rel="nofollow" href="aboutus.html" target="_blank">Copyright © 2025 MaestVN. &nbsp;&nbsp; <a rel="nofollow" href="aboutus.html" target="_blank"></a></p>
       </div>
     </div>
   </footer>
-
   <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
-
-  </body>
+  <script src="assets/js/Store.js"></script>
+</body>
 </html>

@@ -1,0 +1,26 @@
+(function () {
+  'use strict';
+  const form = document.getElementById('signInForm');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault(); // Ngăn không reload trang
+
+    if (!form.checkValidity()) {
+      form.classList.add('was-validated');
+      return;
+    }
+
+    // Lấy dữ liệu người dùng nhập
+    const username = document.getElementById('inputUsername').value;
+    const password = document.getElementById('inputPassword').value;
+
+    // Đăng nhập giả lập (kiểm tra cứng)
+    if (username === 'admin' && password === '123456') {
+      // Nếu đúng, chuyển hướng tới profile.html
+      window.location.href = 'profile.html';
+    } else {
+      // Nếu sai, cảnh báo
+      alert('Sai tên đăng nhập hoặc mật khẩu!');
+    }
+  });
+})();
