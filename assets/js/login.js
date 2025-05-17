@@ -32,23 +32,25 @@ function doLogin() {
   const password = document.getElementById('inputPassword').value;
 
   var http = new XMLHttpRequest();
-  var resp = {
-    "status": 0,
-    "code": 0,
-    "msg": ""
-  };
 
-  http.onreadystatechange = function(resp) {
+  http.onreadystatechange = function() {
     if (this.readyState != 4) {
       alert("ko request dc");
       return;
     }
 
     j = JSON.parse(this.responseText);
+    alert(j["msg"]);
 
-    resp["status"] = this.status;
-    resp["code"] = j["code"];
-    resp["msg"] = j["msg"];
+    switch (this.status) {
+      case 200:
+        window.location.href = "/";
+        break;
+
+      default:
+        break;
+        
+    }
   };
 
   http.open("POST", "https://8f382a9ea43ae6919ed5f37cb1e7d307.serveo.net/api/signin.php", true);
