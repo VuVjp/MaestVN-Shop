@@ -1,4 +1,4 @@
-(function () {
+/*(function () {
   'use strict';
   const form = document.getElementById('signInForm');
 
@@ -23,4 +23,22 @@
       alert('Sai tên đăng nhập hoặc mật khẩu!');
     }
   });
-})();
+})();*/
+
+document.getElementById("loginButton").addEventListener("click", doLogin);
+
+function doLogin() {
+  const username = document.getElementById('inputUsername').value;
+  const password = document.getElementById('inputPassword').value;
+
+  var http = new XMLHttpRequest();
+
+  http.onreadystatechange = function() {
+    if (this.readyState != 4) {
+      alert("ko request dc");
+      return;
+    }
+  };
+
+  return;
+}
