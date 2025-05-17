@@ -123,3 +123,62 @@ function handleSearch() {
 	}
 }
 
+
+  // Giỏ hàng mẫu (sẽ thay bằng localStorage hoặc API)
+  const cart = [
+    {
+      name: "Call of Duty®: Modern Warfare® II",
+      price: 100000,
+      quantity: 1,
+      image: "assets/images/single-game.jpg"
+    },
+    {
+      name: "Assassin's Creed® Valhalla",
+      price: 25000,
+      quantity: 2,
+      image: "assets/images/assassins-creed.jpg"
+    }
+  ];
+
+  function formatVND(n) {
+    return n.toLocaleString("vi-VN") + " đ";
+  }
+
+  function renderCart() {
+    const tbody = document.getElementById("cart-items");
+    const totalDisplay = document.getElementById("cart-total");
+    let total = 0;
+    tbody.innerHTML = "";
+
+    cart.forEach((item, index) => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td><img src="${item.image}" alt="${item.name}" style="width: 80px; border-radius: 10px;"></td>
+        <td>${item.name}</td>
+        <td>${formatVND(item.price)}</td>
+        <td><input type="number" min="1" value="${item.quantity}" class="form-control form-control-sm w-50" onchange="updateQuantity(${index}, this.value)" /></td>
+        <td>${formatVND(itemTotal)}</td>
+        <td><button class="btn btn-danger btn-sm" onclick="removeItem(${index})"><i class="fa fa-trash"></i></button></td>
+      `;
+      tbody.appendChild(row);
+    });
+
+    totalDisplay.innerText = formatVND(total);
+  }
+
+  function updateQuantity(index, newQty) {
+    cart[index].quantity = parseInt(newQty);
+    renderCart();
+  }
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    renderCart();
+  }
+
+  document.addEventListener("DOMContentLoaded", renderCart);
+  
+
