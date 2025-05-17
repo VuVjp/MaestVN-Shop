@@ -25,36 +25,27 @@
   });
 })();*/
 
-document.getElementById("loginButton").addEventListener("click", doLogin);
-
-function doLogin() {
-  const username = document.getElementById('inputUsername').value;
-  const password = document.getElementById('inputPassword').value;
-
-  var http = new XMLHttpRequest();
-
-  http.onreadystatechange = function() {
-    if (this.readyState != 4) {
-      alert("ko request dc");
-      return;
+async function doLogin() {
+  const fch = await fetch(
+    "http://172.17.132.217:8080/api/signin.php",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `username=${document.getElementById('inputUsername').value}&password=${document.getElementById('inputPassword').value}`
     }
+  );
 
-    j = JSON.parse(this.responseText);
-    alert(j["msg"]);
+  if (!fch.ok) {
+    alert("Lỗi do server vui lòng thử lại");
+    return;
+  }
 
-    switch (this.status) {
-      case 200:
-        window.location.href = "/";
-        break;
-
-      default:
-        break;
-        
-    }
-  };
-
-  http.open("POST", "https://8f382a9ea43ae6919ed5f37cb1e7d307.serveo.net/api/signin.php", true);
-  http.send(`username=${username}&password=${password}`);
-
-  return;
+  const data = await response.json();
+  alert(data["msg"]);
+  
+  if (response.status === 200) {
+    window.location.href = "/";
+  }
 }
