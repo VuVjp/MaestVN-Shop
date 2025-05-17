@@ -32,12 +32,23 @@ function doLogin() {
   const password = document.getElementById('inputPassword').value;
 
   var http = new XMLHttpRequest();
+  var resp = {
+    "status": 0,
+    "code": 0,
+    "msg": ""
+  };
 
-  http.onreadystatechange = function() {
+  http.onreadystatechange = function(resp) {
     if (this.readyState != 4) {
       alert("ko request dc");
       return;
     }
+
+    j = JSON.parse(this.responseText);
+
+    resp["status"] = this.status,
+    resp["code"] = JSON.parse(this.responseText);
+    resp["msg"] = responseText
   };
 
   return;
