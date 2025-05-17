@@ -9,7 +9,7 @@ const games = [
   { id: 8, name: "Nguyên-Chan", category: "NguyenDong", img: "assets/images/trending-02.jpg", price: 22, oldPrice: 32, description: "A realistic farming experience.", filterClass: "nd" }
 ];
 
-const ITEMS_PER_PAGE = 4;
+const ITEMS_PER_PAGE = 8;
 let currentFilter = "all";
 let currentPriceFilter = "all";
 let currentPage = 1;
