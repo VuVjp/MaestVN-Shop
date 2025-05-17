@@ -27,7 +27,7 @@
 
 async function doLogin() {
   const fch = await fetch(
-    "http://172.17.132.217:8080/api/signin.php",
+    "http://172.17.132.217:8080/api/signin.php", //url local của tôi
     {
       method: "POST",
       headers: {
