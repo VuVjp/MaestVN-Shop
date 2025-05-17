@@ -1,5 +1,5 @@
 const games = [
-  { id: 1, name: "Assassin Creed", category: "Adventure", img: "assets/images/trending-01.jpg", price: 24, oldPrice: 36, description: "An epic action-adventure game.", filterClass: "adv" },
+  { id: 1, name: "Assassin Creed", category: "Adventure", img: "assets/images/trending-01.jpg", price: 100, oldPrice: 150, description: "An epic action-adventure game.", filterClass: "adv" },
   { id: 2, name: "Farming Simulator", category: "Strategy", img: "assets/images/trending-02.jpg", price: 22, oldPrice: 32, description: "A realistic farming experience.", filterClass: "str" },
   { id: 3, name: "DSN", category: "NguyenDong", img: "assets/images/trending-01.jpg", price: 24, oldPrice: 36, description: "An epic action-adventure game.", filterClass: "nd" },
   { id: 4, name: "SIGMABAUS", category: "NguyenDong", img: "assets/images/trending-02.jpg", price: 22, oldPrice: 32, description: "A realistic farming experience.", filterClass: "nd" },
@@ -62,10 +62,10 @@ function renderGames() {
       <h5 class="card-title">${game.name}</h5>
       <p class="card-text flex-grow-1">${game.description}</p>
       <p class="card-text fw-bold">
-        ${game.oldPrice && game.oldPrice > game.price ? `<span style="text-decoration: line-through; color: #888; margin-right: 8px;">$${game.oldPrice}</span>` : ''}
-        ${game.price === 0 ? 'Free' : `$${game.price}`}
+        ${game.oldPrice && game.oldPrice > game.price ? `<span style="text-decoration: line-through; color: #888; margin-right: 8px;">${game.oldPrice}.000 đ</span>` : ''}
+        ${game.price === 0 ? 'Free' : `${game.price}.000 đ`}
       </p>
-      <a href="product-details.html?id=${game.id}" class="btn btn-primary rounded-pill mt-auto buy-now-btn">Buy Now</a>
+      <a href="product-details.html?id=${game.id}" class="btn btn-primary rounded-pill mt-auto buy-now-btn">Mua ngay</a>
     </div>
   </div>
 `;

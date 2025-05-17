@@ -1,14 +1,12 @@
 const products = {
   "1": {
     name: "Call of Duty®: Modern Warfare® II",
-    priceOld: 28,
-    priceNew: 22,
+    priceOld: 150,
+    priceNew: 100,
     image: "assets/images/single-game.jpg",
-    description: `LUGX Gaming Template is based on the latest Bootstrap 5 CSS framework.
-This template is suitable for your gaming shop ecommerce websites.
-Feel free to use this for any purpose. Thank you.`,
-    genre: ["Action", "Team", "Single"],
-    tags: ["War", "Battle", "Royal"],
+    description: `Game bắn súng hành động`,
+    genre: ["Hành động", "Đồng đội", "1 người chơi"],
+    tags: ["Chiến tranh", "Chiến đấu", "Hoàng gia"],
     id: "COD MMII",
     reviews: [
       "Game rất hay, đồ họa đỉnh cao!",
@@ -23,8 +21,8 @@ Feel free to use this for any purpose. Thank you.`,
     image: "assets/images/assassins-creed.jpg",
     description: `Trải nghiệm thế giới Viking tuyệt đẹp.
 Valhalla mang lại lối chơi nhập vai hấp dẫn cùng với cốt truyện phong phú.`,
-    genre: ["Adventure", "Open World"],
-    tags: ["Viking", "Story", "Combat"],
+    genre: ["Phiêu lưu", "Thế giới mở"],
+    tags: ["Viking", "Cốt truyện", "Chiến đấu"],
     id: "ACV",
     reviews: [
       "Cốt truyện Valhalla rất cuốn hút!",
@@ -59,7 +57,7 @@ function renderProductDetail() {
 
   // Title and price
   document.querySelector(".col-lg-6.align-self-center h4").innerText = product.name;
-  document.querySelector(".price").innerHTML = `<em>$${product.priceOld}</em> $${product.priceNew}`;
+  document.querySelector(".price").innerHTML = `<em>${product.priceOld}.000 đ</em> ${product.priceNew}.000 đ`;
 
   // Description with line breaks
   const descHTML = product.description
@@ -72,7 +70,7 @@ function renderProductDetail() {
   const ul = document.querySelector(".col-lg-6.align-self-center ul");
   ul.innerHTML = `
     <li><span>Game ID:</span> ${product.id}</li>
-    <li><span>Genre:</span> ${product.genre.map(g => `<a href="#">${g}</a>`).join(", ")}</li>
+    <li><span>Thể loại:</span> ${product.genre.map(g => `<a href="#">${g}</a>`).join(", ")}</li>
     <li><span>Multi-tags:</span> ${product.tags.map(t => `<a href="#">${t}</a>`).join(", ")}</li>
   `;
 
